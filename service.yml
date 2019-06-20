@@ -1,0 +1,53 @@
+name: openedge_hub
+listen:
+  - tcp://:8963
+  - ssl://:8964
+  - ws://:8965/mqtt
+  - wss://:8966/mqtt
+certificate:
+  ca: 'var/db/openedge/cert/ca.pem'
+  cert: 'var/db/openedge/cert/server.pem'
+  key: 'var/db/openedge/cert/server.key'
+  insecure: true
+principals:
+  - username: 'test'
+    password: 'test'
+    permissions:
+      - action: 'pub'
+        permit: ['#']
+      - action: 'sub'
+        permit: ['#']
+  - username: 'another'
+    password: 'another'
+    permissions:
+      - action: 'pub'
+        permit: ['#']
+      - action: 'sub'
+        permit: ['#']
+  - username: 'singleTopic'
+    password: 'singleTopic'
+    permissions:
+      - action: 'pub'
+        permit: ['single/topic','single/topic/pub','unauthorized/topic','few/topics/check']
+      - action: 'sub'
+        permit: ['single/topic','single/topic/sub','unauthorized/result','few/topics/check']
+  - username: 'wildcardcheck'
+    password: 'wildcardcheck'
+    permissions:
+      - action: 'pub'
+        permit: ['test/permit/sharp/#', 'test/permit/plus/+']
+      - action: 'sub'
+        permit: ['test/permit/sharp/#', 'test/permit/plus/+']
+  - username: 'onlyplus'
+    password: 'onlyplus'
+    permissions:
+      - action: 'pub'
+        permit: ['+']
+      - action: 'sub'
+        permit: ['+']
+  - username: 'two_way_tls'
+    permissions:
+      - action: 'pub'
+        permit: ['#']
+      - action: 'sub'
+        permit: ['#']

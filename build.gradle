@@ -1,0 +1,37 @@
+apply plugin: 'spring-boot'
+apply plugin: 'base-settings'
+apply plugin: 'java'
+apply plugin: 'ide'
+apply plugin: 'output'
+apply plugin: 'lombok'
+
+defaultTasks 'clean', 'output'
+
+output.thisProject = true
+project.gradle.projectsEvaluated {
+    tasks.output.doLast {
+        mkdir 'output/conf'
+        copy {
+            from "conf"
+            into "output/conf"
+        }
+        copy {
+            from "private-deploy"
+            into "output/private-deploy"
+        }
+    }
+}
+
+dependencies {
+    compile 'org.fusesource.mqtt-client:mqtt-client:1.14'
+    compile 'org.bouncycastle:bcpkix-jdk15on:1.47'
+    compile 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.0'
+    compile libs.bce_plat_web_framework_test
+    compile libs.lombok
+    compile libs.commons_io
+    compile libs.commons_collections
+    compile libs.commons_lang
+    compile libs.mybatis
+    compile libs.guava
+    compile libs.spring_boot_starter_test
+}

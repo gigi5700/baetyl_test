@@ -1,0 +1,13 @@
+{
+  "regions": [
+    {
+      "region": "default",
+      "services": [
+        {
+          "service": "IOT.edge.endpoint",
+          "endpoint": "http://10.73.203.47:8031"
+        }
+      ]
+    }
+  ]
+}

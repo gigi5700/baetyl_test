@@ -1,0 +1,6 @@
+rootProject.name = 'mqtt-test'
+
+
+gradle.allprojects {
+    it.apply from: new File(rootDir, 'gradle/bootstrap.gradle')
+}
