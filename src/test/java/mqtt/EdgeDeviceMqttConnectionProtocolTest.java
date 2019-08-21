@@ -1,5 +1,12 @@
 package mqtt;
 
+import test.EDGEIntegrationTest;
+import utils.CheckCommon;
+import utils.PubSubCommon;
+import utils.client.ConnectionType;
+import utils.client.MqttConnection;
+import utils.client.PubSubCallback;
+
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -9,15 +16,8 @@ import org.eclipse.paho.client.mqttv3.MqttException;
 import org.junit.Assume;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
+import org.junit.runner.RunWith;import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
-import test.EDGEIntegrationTest;
-import util.PubSubCommon;
-import util.client.ConnectionType;
-import util.CheckCommon;
-import util.client.MqttConnection;
-import util.client.PubSubCallback;
 
 /**
  * Test cases for protocol connection of mqtt device
@@ -178,8 +178,6 @@ public class EdgeDeviceMqttConnectionProtocolTest extends EDGEIntegrationTest {
 
     /**
      * TestGoal: Test connecting mqtt with two-way tls mode and check msg re-forward and illegal scenarios.
-     *
-     * IcafeId: https://github.com/baidu/openedge/pull/135(in github)
      *
      * @throws Exception
      */

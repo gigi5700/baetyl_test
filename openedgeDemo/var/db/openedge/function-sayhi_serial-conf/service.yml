@@ -1,0 +1,5 @@
+#name: python-function
+functions:
+  - name: 'sayhi_serial'
+    handler: 'sayhi.handler'
+    codedir: 'var/db/openedge/function/sayhi'

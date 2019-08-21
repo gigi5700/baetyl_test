@@ -1,5 +1,14 @@
 package mqtt;
 
+import test.EDGEIntegrationTest;
+import utils.CheckCommon;
+import utils.PubSubCommon;
+import utils.client.ConnectionType;
+import utils.client.MqttConnection;
+import utils.client.PubSubCallback;
+import utils.fusesource.FuseConnectedAndSubCallback;
+import utils.fusesource.FuseSubNoAckListener;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -16,14 +25,6 @@ import org.fusesource.mqtt.client.QoS;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import test.EDGEIntegrationTest;
-import util.CheckCommon;
-import util.PubSubCommon;
-import util.client.ConnectionType;
-import util.client.MqttConnection;
-import util.client.PubSubCallback;
-import util.client.fusesource.FuseConnectedAndSubCallback;
-import util.client.fusesource.FuseSubNoAckListener;
 
 /**
  * Test cases for mqtt features of mqtt device(For saving time in parallel running scenario)

@@ -1,0 +1,146 @@
+name: openedge_hub
+listen:
+  - tcp://:8963
+  - ssl://:8964
+  - ws://:8965/mqtt
+  - wss://:8966/mqtt
+certificate:
+  ca: 'var/db/openedge/cert/root.pem'
+  cert: 'var/db/openedge/cert/server.pem'
+  key: 'var/db/openedge/cert/server.key'
+  insecure: true
+message:
+  length:
+    max: '32k'
+  ingress:
+    qos0:
+      persist: false
+      buffer: 
+        size: 10000
+    qos1:
+      buffer:
+        size: 100
+      batch:
+        max: 50
+      cleanup:
+        retention: '2m'
+#        interval: '10'
+  egress:
+    qos0:
+      buffer:
+        size: 1000
+    qos1:
+      buffer:
+        size: 5
+      batch:
+        max: 10
+      retry:
+        interval: '10s'
+      offset:
+        buffer:
+          size: 1000
+        batch:
+          max: 100
+principals:
+  - username: 'test'
+    password: 'test'
+    permissions:
+      - action: 'pub'
+        permit: ['#']
+      - action: 'sub'
+        permit: ['#']
+  - username: 'another'
+    password: 'another'
+    permissions:
+      - action: 'pub'
+        permit: ['#']
+      - action: 'sub'
+        permit: ['#']
+  - username: 'singleTopic'
+    password: 'singleTopic'
+    permissions:
+      - action: 'pub'
+        permit: ['single/topic','single/topic/pub','unauthorized/topic','few/topics/check']
+      - action: 'sub'
+        permit: ['single/topic','single/topic/sub','unauthorized/result','few/topics/check']
+  - username: 'wildcardcheck'
+    password: 'wildcardcheck'
+    permissions:
+      - action: 'pub'
+        permit: ['test/permit/sharp/#', 'test/permit/plus/+']
+      - action: 'sub'
+        permit: ['test/permit/sharp/#', 'test/permit/plus/+']
+  - username: 'onlyplus'
+    password: 'onlyplus'
+    permissions:
+      - action: 'pub'
+        permit: ['+']
+      - action: 'sub'
+        permit: ['+']
+  - username: 'two_way_tls'
+    permissions:
+      - action: 'pub'
+        permit: ['#']
+      - action: 'sub'
+        permit: ['#']
+
+subscriptions:
+  - source:
+      topic: 'multi/test'
+    target:
+      topic: 'result/mqtt'
+  - source:
+      topic: 'single/test' 
+    target:
+      topic: 'single/result'
+  - source:
+      topic: 'chain/test/1'
+    target:
+      topic: 'chain/test/2'
+  - source:
+      topic: 'across/test'
+    target:
+      topic: 'across/result'
+
+  - source:
+      topic: 'qos/at_most_once'
+      qos: 0
+    target:
+      topic: 'qos/result/at_least_once'
+      qos: 1
+  - source:
+      topic: 'qos/at_least_once'
+      qos: 1
+    target:
+      topic: 'qos/result/at_most_once'
+      qos: 0
+  - source:
+      topic: 'qos/test/at_least_once'
+      qos: 1
+    target:
+      topic: 'qos/test/result/at_least_once'
+      qos: 1
+
+  - source:
+      topic: 'unauthorized/topic'
+    target:
+      topic: 'unauthorized/target'
+  - source:
+      topic: 'unauthorized/target'
+    target:
+      topic: 'unauthorized/result'
+  - source:
+      topic: 'wildcard/sharp/#'
+    target:
+      topic: 'result/wildcard/sharp'
+  - source:
+      topic: 'reforward/source'
+      qos: 1
+    target:
+      topic: 'reforward/target'
+      qos: 1
+
+logger:
+  path: var/log/openedge/openedge_hub.log
+  console: true
+  level: "debug"

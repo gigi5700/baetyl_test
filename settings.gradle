@@ -1,5 +1,4 @@
-rootProject.name = 'mqtt-test'
-
+rootProject.name = 'edge-test'
 
 gradle.allprojects {
     it.apply from: new File(rootDir, 'gradle/bootstrap.gradle')

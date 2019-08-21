@@ -1,0 +1,4 @@
+#name: function-sql
+functions:
+  - name: 'simple_sql7'
+    handler: 'select *'

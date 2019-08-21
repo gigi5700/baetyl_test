@@ -1,0 +1,4 @@
+#name: function-sql
+functions:
+  - name: 'where_test2'
+    handler: 'select * where cv3 like ''expect%'' AND abs(cv1) > 10'

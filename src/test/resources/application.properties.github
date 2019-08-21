@@ -1,0 +1,39 @@
+hub.cert.path=./wrong.pem
+
+# localHub config
+offline.edge.url=*.*.*.*
+offline.edge.tcp.port=8963
+offline.edge.ssl.port=8964
+offline.edge.ws.port=8965
+offline.edge.wss.port=8966
+offline.edge.username=test
+offline.edge.password=test
+offline.edge.another.username=another
+offline.edge.another.password=another
+offline.edge.two.way.tls.username=two_way_tls
+edge.single.topic.username=singleTopic
+edge.single.topic.password=singleTopic
+edge.permit.check.username=wildcardcheck
+edge.permit.check.password=wildcardcheck
+only.plus.username=onlyplus
+only.plus.password=onlyplus
+mqtt.msg.byte.limit=32768
+mqtt.clientid.length.limit=128
+mqtt.topic.length.limit=255
+edge.cert.path=./ca.pem
+edge.client.pem.path=./client.pem
+edge.client.key.path=./client.key
+
+# function config
+edge.rule.function.python=sayhi
+edge.rule.function.python.serial=sayhi_serial
+edge.rule.function.python.call=call_python
+edge.rule.function.sql.call=sql_call_python
+edge.rule.function.python.user=zm
+
+# remote config
+remote.mqtt.specific.username=remoteauth
+remote.mqtt.specific.password=remoteauth
+remote.mqtt.alltopic.username=remotetest
+remote.mqtt.alltopic.password=remotetest
+remote.mqtt.tcp.port=7963

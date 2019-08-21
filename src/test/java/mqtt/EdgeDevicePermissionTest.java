@@ -1,5 +1,13 @@
 package mqtt;
 
+import test.EDGEIntegrationTest;
+import utils.CheckCommon;
+import utils.PubSubCommon;
+import utils.client.ConnectionType;
+import utils.client.MqttConnection;
+import utils.client.PubSubCallback;
+import utils.client.RandomNameHolder;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -14,13 +22,6 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import test.EDGEIntegrationTest;
-import util.client.ConnectionType;
-import util.CheckCommon;
-import util.client.MqttConnection;
-import util.client.PubSubCallback;
-import util.client.RandomNameHolder;
-import util.PubSubCommon;
 
 /**
  * Test cases for permission check of mqtt device
@@ -43,8 +44,7 @@ public class EdgeDevicePermissionTest extends EDGEIntegrationTest {
     @Before
     public void setUp() throws Exception {    
         connectionType = ConnectionType.values()[random.nextInt(ConnectionType.values().length)];
-        tls = ConnectionType.WSS.equals(connectionType) || ConnectionType.SSL
-                .equals(connectionType) ? true : false;
+        tls = ConnectionType.WSS.equals(connectionType) || ConnectionType.SSL.equals(connectionType) ? true : false;
         qos = random.nextInt(2);
         log.info("Connection type is {}", connectionType.toString());
         connectOptions = PubSubCommon.getDefaultConnectOptions(offlineEdgeUsername, offlineEdgePassword);

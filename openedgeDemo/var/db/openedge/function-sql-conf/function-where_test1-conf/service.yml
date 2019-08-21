@@ -1,0 +1,4 @@
+#name: function-sql
+functions:
+  - name: 'where_test1'
+    handler: 'select * where ce=''eq'' AND cne <> ''eq'' AND ((cv1 <= 10 OR cv2 > cv1 + 10) OR cv3 IN (''expectA'', ''expectB''))'

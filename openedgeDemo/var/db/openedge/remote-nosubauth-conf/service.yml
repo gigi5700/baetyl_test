@@ -1,0 +1,29 @@
+name: remote-nosubauth
+hub:
+  address: tcp://openedge_hub:8963
+  clientid: noauth_local_hub
+  username: test
+  password: test
+
+remotes:
+  - name: 'no_sub_auth'
+    address: 'tcp://remote_hub:7963'
+    clientid: 13dd7422353c46f_nosubauth
+    username: remoteauth
+    password: remoteauth
+    
+rules:
+  - id: rule1
+    hub:
+      subscriptions:
+        - topic: remote/authcheck
+          qos: 0
+    remote:
+      name: 'no_sub_auth'
+      subscriptions:
+        - topic: unauthorized/sub/docker
+          qos: 1
+logger:
+  path: var/log/openedge/remote-nosubauth.log
+  console: true
+  level: "debug"

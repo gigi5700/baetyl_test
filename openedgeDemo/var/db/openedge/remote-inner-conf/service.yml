@@ -1,0 +1,38 @@
+name: remote-inner
+
+hub:
+  address: tcp://openedge_hub:8963
+  clientid: 1240fe9131ccd3998ae7df
+  username: test
+  password: test
+
+remotes:
+  - name: 'remoteHub'
+    address: 'tcp://remote_hub:7963'
+    clientid: 13dd7422353c46fef8_remote
+    username: remotetest
+    password: remotetest
+    cleansession: true
+
+rules:
+  - id: rule1
+    hub:
+      subscriptions:
+        - topic: remote/docker/pub
+          qos: 0
+        - topic: unauthorized/docker/pub
+          qos: 0
+        - topic: remote/docker/sharp/#
+    remote:
+      name: 'remoteHub'
+      subscriptions:
+        - topic: remote/docker/sub
+          qos: 1
+        - topic: remote/docker/clean_session
+          qos: 1
+        - topic: remote/docker/plus/+
+ 
+logger:
+  path: var/log/openedge/remote-inner.log
+  console: true
+  level: "debug"

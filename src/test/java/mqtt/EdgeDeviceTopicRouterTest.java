@@ -1,5 +1,11 @@
 package mqtt;
 
+import test.EDGEIntegrationTest;
+import utils.PubSubCommon;
+import utils.client.ConnectionType;
+import utils.client.MqttConnection;
+import utils.client.PubSubCallback;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -9,11 +15,6 @@ import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import test.EDGEIntegrationTest;
-import util.PubSubCommon;
-import util.client.ConnectionType;
-import util.client.MqttConnection;
-import util.client.PubSubCallback;
 
 /**
  * Test cases for topic router of mqtt device

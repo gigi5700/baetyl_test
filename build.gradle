@@ -5,23 +5,6 @@ apply plugin: 'ide'
 apply plugin: 'output'
 apply plugin: 'lombok'
 
-defaultTasks 'clean', 'output'
-
-output.thisProject = true
-project.gradle.projectsEvaluated {
-    tasks.output.doLast {
-        mkdir 'output/conf'
-        copy {
-            from "conf"
-            into "output/conf"
-        }
-        copy {
-            from "private-deploy"
-            into "output/private-deploy"
-        }
-    }
-}
-
 dependencies {
     compile 'org.fusesource.mqtt-client:mqtt-client:1.14'
     compile 'org.bouncycastle:bcpkix-jdk15on:1.47'
@@ -34,4 +17,9 @@ dependencies {
     compile libs.mybatis
     compile libs.guava
     compile libs.spring_boot_starter_test
+}
+
+task edgetest(type: Test) {
+    testClassesDir = sourceSets.test.output.classesDir
+    classpath = sourceSets.test.runtimeClasspath
 }

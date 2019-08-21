@@ -1,5 +1,11 @@
 package mqtt;
 
+import test.EDGEIntegrationTest;
+import utils.PubSubCommon;
+import utils.client.ConnectionType;
+import utils.client.MqttConnection;
+import utils.client.PubSubCallback;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -15,11 +21,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
-import test.EDGEIntegrationTest;
-import util.PubSubCommon;
-import util.client.ConnectionType;
-import util.client.MqttConnection;
-import util.client.PubSubCallback;
 
 /**
  * Test cases for mqtt features of mqtt device

@@ -1,5 +1,13 @@
 package mqtt;
 
+import test.EDGEIntegrationTest;
+import utils.CheckCommon;
+import utils.PubSubCommon;
+import utils.client.ConnectionType;
+import utils.client.MqttConnection;
+import utils.client.PubSubCallback;
+import utils.client.RandomNameHolder;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -10,13 +18,6 @@ import org.eclipse.paho.client.mqttv3.MqttException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import test.EDGEIntegrationTest;
-import util.CheckCommon;
-import util.client.ConnectionType;
-import util.client.MqttConnection;
-import util.PubSubCommon;
-import util.client.PubSubCallback;
-import util.client.RandomNameHolder;
 
 /**
  * Test cases for mqtt device limit checker
