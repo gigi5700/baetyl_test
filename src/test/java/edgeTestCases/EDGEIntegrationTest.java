@@ -31,7 +31,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @SpringApplicationConfiguration(classes = {PropertyPlaceholderAutoConfiguration.class, })
 @RunWith(SpringJUnit4ClassRunner.class)
 @Slf4j
-public class EDGEIntegrationTest {
+public abstract class EDGEIntegrationTest {
 
     protected Map<String, Integer> offlineEdgePortMap = new HashMap<>();
     protected Map<String, Integer> remoteHubPortMap = new HashMap<>();

@@ -308,7 +308,7 @@ public class EdgeDeviceReSQLTest extends EDGEIntegrationTest {
         
         for (RuleDataMsg msg : dataMsgs) {
             PubSubCommon.publish(pub, sourceTopic, qos, Converter.modelToJsonUsingJsonNode(msg), false);
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         }
         checker.checkResultMessage(targetTopic1, matchedMsgForTarget1);
         checker.checkResultMessage(targetTopic2, matchedMsgForTarget2);
