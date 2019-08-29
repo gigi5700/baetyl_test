@@ -1,4 +1,4 @@
-#name: function-sql
+#name: edgeTestCases.function-sql
 functions:
   - name: 'custom_functions_2'
     handler: 'select CURRENT_TIMESTAMP AS current, LOCALTIMESTAMP() AS local, uuid() as uuid, newid() as newId'

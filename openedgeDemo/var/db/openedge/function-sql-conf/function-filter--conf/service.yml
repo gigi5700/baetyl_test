@@ -1,4 +1,4 @@
-#name: function-sql
+#name: edgeTestCases.function-sql
 functions:
   - name: 'filter'
     handler: 'select device, topic() as data, *'

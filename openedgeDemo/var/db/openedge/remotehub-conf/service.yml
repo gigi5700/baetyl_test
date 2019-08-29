@@ -45,9 +45,9 @@ principals:
     password: 'remoteauth'
     permissions:
       - action: 'pub'
-        permit: ['remote/#']
+        permit: ['edgeTestCases.remote/#']
       - action: 'sub'
-        permit: ['remote/#']
+        permit: ['edgeTestCases.remote/#']
 
 logger:
   path: var/log/openedge/remote_hub.log

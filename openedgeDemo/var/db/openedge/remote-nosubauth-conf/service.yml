@@ -1,4 +1,4 @@
-name: remote-nosubauth
+name: edgeTestCases.remote-nosubauth
 hub:
   address: tcp://openedge_hub:8963
   clientid: noauth_local_hub
@@ -16,14 +16,14 @@ rules:
   - id: rule1
     hub:
       subscriptions:
-        - topic: remote/authcheck
+        - topic: edgeTestCases.remote/authcheck
           qos: 0
-    remote:
+    edgeTestCases.remote:
       name: 'no_sub_auth'
       subscriptions:
         - topic: unauthorized/sub/docker
           qos: 1
 logger:
-  path: var/log/openedge/remote-nosubauth.log
+  path: var/log/openedge/edgeTestCases.remote-nosubauth.log
   console: true
   level: "debug"

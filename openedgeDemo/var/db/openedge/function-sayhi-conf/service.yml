@@ -1,5 +1,5 @@
-#name: python-function
+#name: python-edgeTestCases.function
 functions:
   - name: 'sayhi'
     handler: 'sayhi.handler'
-    codedir: 'var/db/openedge/function/sayhi'
+    codedir: 'var/db/openedge/edgeTestCases.function/sayhi'

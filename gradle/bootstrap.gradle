@@ -1,11 +1,14 @@
 project.buildscript {
     repositories {
+        def aliMaven = "http://maven.aliyun.com/nexus/content/groups/public/"
+        def cMaven = "https://repo1.maven.org/maven2"
         maven {
-            url 'http://maven.scm.baidu.com:8081/nexus/content/groups/public/'
+            url aliMaven
+            artifactUrls cMaven
         }
     }
+
     dependencies {
-        classpath "com.baidu.bae:gradle-plugins:$gradlePluginsVersion"
         classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.2.2.RELEASE'
     }
 }

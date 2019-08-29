@@ -1,4 +1,4 @@
-name: remote-inner
+name: edgeTestCases.remote-inner
 
 hub:
   address: tcp://openedge_hub:8963
@@ -18,21 +18,21 @@ rules:
   - id: rule1
     hub:
       subscriptions:
-        - topic: remote/docker/pub
+        - topic: edgeTestCases.remote/docker/pub
           qos: 0
         - topic: unauthorized/docker/pub
           qos: 0
-        - topic: remote/docker/sharp/#
-    remote:
+        - topic: edgeTestCases.remote/docker/sharp/#
+    edgeTestCases.remote:
       name: 'remoteHub'
       subscriptions:
-        - topic: remote/docker/sub
+        - topic: edgeTestCases.remote/docker/sub
           qos: 1
-        - topic: remote/docker/clean_session
+        - topic: edgeTestCases.remote/docker/clean_session
           qos: 1
-        - topic: remote/docker/plus/+
+        - topic: edgeTestCases.remote/docker/plus/+
  
 logger:
-  path: var/log/openedge/remote-inner.log
+  path: var/log/openedge/edgeTestCases.remote-inner.log
   console: true
   level: "debug"

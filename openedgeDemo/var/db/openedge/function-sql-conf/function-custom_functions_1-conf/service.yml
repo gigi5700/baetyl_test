@@ -1,4 +1,4 @@
-#name: function-sql
+#name: edgeTestCases.function-sql
 functions:
   - name: 'custom_functions_1'
     handler: 'select topic() as topic, qos() as `value`'

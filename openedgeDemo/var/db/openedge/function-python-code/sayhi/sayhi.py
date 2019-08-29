@@ -11,7 +11,7 @@ import threading
 
 def handler(event, context):
     """
-    function handler
+    edgeTestCases.function handler
     """
     result = {}
 
@@ -39,7 +39,7 @@ def handler(event, context):
 
 def run(event):
     """
-    function run thread
+    edgeTestCases.function run thread
     """
     for i in range(1, 10):
         event['run.thread.times'] = i

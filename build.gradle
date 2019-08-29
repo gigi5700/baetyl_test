@@ -1,23 +1,32 @@
 apply plugin: 'spring-boot'
-apply plugin: 'base-settings'
 apply plugin: 'java'
-apply plugin: 'ide'
-apply plugin: 'output'
-apply plugin: 'lombok'
+apply plugin: 'idea'
+
+repositories {
+    def aliMaven = "http://maven.aliyun.com/nexus/content/groups/public/"
+    def cMaven = "https://repo1.maven.org/maven2"
+    maven {
+        url aliMaven
+        artifactUrls cMaven
+    }
+}
 
 dependencies {
-    compile 'org.fusesource.mqtt-client:mqtt-client:1.14'
-    compile 'org.bouncycastle:bcpkix-jdk15on:1.47'
-    compile 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.0'
-    compile libs.bce_plat_web_framework_test
-    compile libs.lombok
-    compile libs.commons_io
-    compile libs.commons_collections
-    compile libs.commons_lang
-    compile libs.mybatis
-    compile libs.guava
-    compile libs.spring_boot_starter_test
+    testCompile 'org.projectlombok:lombok:1.16.12'
+    testCompile 'org.slf4j:slf4j-api:1.7.7'
+    testCompile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.7'
+    testCompile 'org.springframework:spring-beans:4.0.3.RELEASE'
+    testCompile 'org.springframework.boot:spring-boot:1.0.2.RELEASE'
+    testCompile 'org.springframework.boot:spring-boot-autoconfigure:1.0.2.RELEASE'
+    testCompile 'com.fasterxml.jackson.core:jackson-databind:2.9.3'
+    testCompile 'org.fusesource.mqtt-client:mqtt-client:1.14'
+    testCompile 'org.bouncycastle:bcpkix-jdk15on:1.47'
+    testCompile 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.0'
+    testCompile files('./library/bce-plat-web-framework-test-2.0.46.1.jar')
+    testCompile 'junit:junit:4.12'
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '1.0.2.RELEASE'
 }
+
 
 task edgetest(type: Test) {
     testClassesDir = sourceSets.test.output.classesDir

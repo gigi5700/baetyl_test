@@ -2,8 +2,8 @@ name: openedge_hub
 listen:
   - tcp://:8963
   - ssl://:8964
-  - ws://:8965/mqtt
-  - wss://:8966/mqtt
+  - ws://:8965/edgeTestCases.mqtt
+  - wss://:8966/edgeTestCases.mqtt
 certificate:
   ca: 'var/db/openedge/cert/root.pem'
   cert: 'var/db/openedge/cert/server.pem'
@@ -88,7 +88,7 @@ subscriptions:
   - source:
       topic: 'multi/test'
     target:
-      topic: 'result/mqtt'
+      topic: 'result/edgeTestCases.mqtt'
   - source:
       topic: 'single/test' 
     target:

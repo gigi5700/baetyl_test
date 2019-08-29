@@ -1,4 +1,4 @@
-#name: function-manager
+#name: edgeTestCases.function-manager
 hub:
   address: tcp://openedge_hub:8963
   username: test
@@ -8,7 +8,7 @@ rules:
   - clientid: rule-e1iluuac1
     subscribe:
       topic: multi/test
-    function:
+    edgeTestCases.function:
       name: filter
     publish:
       topic: result/sql
@@ -16,7 +16,7 @@ rules:
     subscribe:
       topic: multi/test
       qos: 1
-    function:
+    edgeTestCases.function:
       name: sayhi
     publish:
       topic: result/python
@@ -24,21 +24,21 @@ rules:
   - clientid: rule-e1iluuac3
     subscribe:
       topic: chain/test/2
-    function:
+    edgeTestCases.function:
       name: simple_sql
     publish:
       topic: redirect_to_function
   - clientid: rule-e1iluuac4
     subscribe:
       topic: redirect_to_function
-    function:
+    edgeTestCases.function:
       name: simple_python
     publish:
       topic: chain/test/3
   - clientid: rule-e1iluuac5
     subscribe:
       topic: across/result
-    function:
+    edgeTestCases.function:
       name: simple_sql
     publish:
       topic: across/back
@@ -46,110 +46,110 @@ rules:
     subscribe:
       topic: qos/at_most_once_function
       qos: 0
-    function:
+    edgeTestCases.function:
       name: simple_sql
     publish:
-      topic: qos/result/function/at_least_once
+      topic: qos/result/edgeTestCases.function/at_least_once
       qos: 1
   - clientid: rule-e1iluuac7
     subscribe:
       topic: plus/wildcard/+
-    function:
+    edgeTestCases.function:
       name: simple_sql
     publish:
       topic: result/wildcard/plus
   - clientid: rule-e1iluuac8
     subscribe:
       topic: selectMany
-    function:
+    edgeTestCases.function:
       name: complex_select
     publish:
       topic: result/select/many
   - clientid: rule-e1iluuac9
     subscribe:
       topic: selectFunctions
-    function:
+    edgeTestCases.function:
       name: select_functions
     publish:
-      topic: result/select/function
+      topic: result/select/edgeTestCases.function
   - clientid: rule-e1iluuac10
     subscribe:
       topic: custom/functions
-    function:
+    edgeTestCases.function:
       name: custom_functions_1
     publish:
-      topic: result/custom/function
+      topic: result/custom/edgeTestCases.function
   - clientid: rule-e1iluuac11
     subscribe:
       topic: custom/functions2
-    function:
+    edgeTestCases.function:
       name: custom_functions_2
     publish:
       topic: result/custom/function2
   - clientid: rule-e1iluuac12
     subscribe:
       topic: where/test
-    function:
+    edgeTestCases.function:
       name: where_test1
     publish:
       topic: result/where/test1
   - clientid: rule-e1iluuac13
     subscribe:
       topic: where/test
-    function:
+    edgeTestCases.function:
       name: where_test2
     publish:
       topic: result/where/test2
   - clientid: rule-e1iluuac14
     subscribe:
       topic: nestmsg/test
-    function:
+    edgeTestCases.function:
       name: nestmsg
     publish:
       topic: result/nestmsg
   - clientid: rule-e1iluuac15
     subscribe:
-      topic: python/function/test
+      topic: python/edgeTestCases.function/test
       qos: 1
-    function:
+    edgeTestCases.function:
       name: sayhi
     publish:
-      topic: python/function/result
+      topic: python/edgeTestCases.function/result
   - clientid: rule-e1iluuac16
     subscribe:
-      topic: python/function/test
-    function:
+      topic: python/edgeTestCases.function/test
+    edgeTestCases.function:
       name: sayhi_serial
     publish:
-      topic: python/function/serial/result
+      topic: python/edgeTestCases.function/serial/result
 
 functions:
   - name: 'simple_sql'
-    service: function-simple_sql
+    service: edgeTestCases.function-simple_sql
   - name: 'filter'
-    service: function-filter
+    service: edgeTestCases.function-filter
   - name: 'complex_select'
-    service: function-complex_select
+    service: edgeTestCases.function-complex_select
   - name: 'select_functions'
-    service: function-select_functions
+    service: edgeTestCases.function-select_functions
   - name: 'custom_functions_1'
-    service: function-custom_functions_1
+    service: edgeTestCases.function-custom_functions_1
   - name: 'custom_functions_2'
-    service: function-custom_functions_2
+    service: edgeTestCases.function-custom_functions_2
   - name: 'where_test1'
-    service: function-where_test1
+    service: edgeTestCases.function-where_test1
     instance:
       max: 5
   - name: 'where_test2'
-    service: function-where_test2
+    service: edgeTestCases.function-where_test2
     instance:
       max: 5
   - name: 'nestmsg'
-    service: function-nestmsg
+    service: edgeTestCases.function-nestmsg
   - name: 'simple_python'
-    service: function-simple_python
+    service: edgeTestCases.function-simple_python
   - name: 'sayhi'
-    service: function-sayhi
+    service: edgeTestCases.function-sayhi
     instance:
       min: 1
       max: 3
@@ -163,7 +163,7 @@ functions:
       pids:
         max: 2
   - name: 'sayhi_serial'
-    service: function-sayhi_serial
+    service: edgeTestCases.function-sayhi_serial
     env:
       USER_NAME: 'zm'
     instance:

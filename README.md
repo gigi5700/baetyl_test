@@ -5,5 +5,5 @@ EDGE TEST README
   
 * 需要运行一个离线的openedge，参考配置见openedgeDemo
 
-* 需要将配置文件application.yml中offline.edge.url更新为运行openedge的机器ip
+* 需要将配置文件application.yml中offline.edgeTestCases.url更新为运行openedge的机器ip
   

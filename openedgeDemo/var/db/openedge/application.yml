@@ -2,7 +2,7 @@ version: V1
 services:
   # localHub
   - name: openedge_hub
-    image: hub.baidubce.com/openedgedev/openedge-hub:latest
+    image: openedge-hub:latest
     replica: 1
     ports:
       - 8963:8963
@@ -24,7 +24,7 @@ services:
 
   # localHub as remote
   - name: remote_hub
-    image: hub.baidubce.com/openedgedev/openedge-hub:latest
+    image: openedge-hub:latest
     replica: 1
     ports:
       - 7963:7963
@@ -39,49 +39,49 @@ services:
     replica: 1
 
   # remote
-  - name: remote-inner
-    image: hub.baidubce.com/openedgedev/openedge-remote-mqtt:latest
+  - name: edgeTestCases.remote-inner
+    image: hub.baidubce.com/openedgedev/openedge-edgeTestCases.remote-edgeTestCases.mqtt:latest
     replica: 1
     mounts:
-      - name: remote-inner-conf
+      - name: edgeTestCases.remote-inner-conf
         path: etc/openedge
         readonly: true
-      - name: remote-inner-log
+      - name: edgeTestCases.remote-inner-log
         path: var/log/openedge
 
-  - name: remote-nosubauth
-    image: hub.baidubce.com/openedgedev/openedge-remote-mqtt:latest
+  - name: edgeTestCases.remote-nosubauth
+    image: hub.baidubce.com/openedgedev/openedge-edgeTestCases.remote-edgeTestCases.mqtt:latest
     replica: 1
     mounts:
-      - name: remote-nosubauth-conf
+      - name: edgeTestCases.remote-nosubauth-conf
         path: etc/openedge
         readonly: true
-      - name: remote-nosubauth-log
+      - name: edgeTestCases.remote-nosubauth-log
         path: var/log/openedge
 
   #functions
-  - name: function-manager
-    image: hub.baidubce.com/openedgedev/openedge-function-manager:latest
+  - name: edgeTestCases.function-manager
+    image: hub.baidubce.com/openedgedev/openedge-edgeTestCases.function-manager:latest
     replica: 1
     mounts:
-      - name: function-manager-conf
+      - name: edgeTestCases.function-manager-conf
         path: etc/openedge
         readonly: true
-      - name: function-manager-log
+      - name: edgeTestCases.function-manager-log
         path: var/log/openedge
 
   #python functions
-  - name: function-sayhi
-    image: hub.baidubce.com/openedgedev/openedge-function-python27:latest
+  - name: edgeTestCases.function-sayhi
+    image: hub.baidubce.com/openedgedev/openedge-edgeTestCases.function-python27:latest
     replnosubica: 0
     env:
       USER_NAME: 'zm'
     mounts:
-      - name: function-sayhi-conf
+      - name: edgeTestCases.function-sayhi-conf
         path: etc/openedge
         readonly: true
-      - name: function-python-code
-        path: var/db/openedge/function
+      - name: edgeTestCases.function-python-code
+        path: var/db/openedge/edgeTestCases.function
         readonly: true
     resources:
       memory:
@@ -92,89 +92,89 @@ services:
         #setcpus: 0-2
       pids:
         limit: 40
-  - name: function-sayhi_serial
-    image: hub.baidubce.com/openedgedev/openedge-function-python27:latest
+  - name: edgeTestCases.function-sayhi_serial
+    image: hub.baidubce.com/openedgedev/openedge-edgeTestCases.function-python27:latest
     replica: 0
     mounts:
-      - name: function-sayhi_serial-conf
+      - name: edgeTestCases.function-sayhi_serial-conf
         path: etc/openedge
         readonly: true
-      - name: function-python-code
-        path: var/db/openedge/function
+      - name: edgeTestCases.function-python-code
+        path: var/db/openedge/edgeTestCases.function
         readonly: true
-  - name: function-simple_python
-    image: hub.baidubce.com/openedgedev/openedge-function-python27:latest
+  - name: edgeTestCases.function-simple_python
+    image: hub.baidubce.com/openedgedev/openedge-edgeTestCases.function-python27:latest
     replica: 0
     mounts:
-      - name: function-simple_python-conf
+      - name: edgeTestCases.function-simple_python-conf
         path: etc/openedge
         readonly: true
-      - name: function-python-code
-        path: var/db/openedge/function
+      - name: edgeTestCases.function-python-code
+        path: var/db/openedge/edgeTestCases.function
         readonly: true
 
 #sql functions
-  - name: function-complex_select
-    image: hub.baidubce.com/openedgedev/openedge-function-sql:latest
+  - name: edgeTestCases.function-complex_select
+    image: hub.baidubce.com/openedgedev/openedge-edgeTestCases.function-sql:latest
     replica: 0
     mounts:
-      - name: function-complex_select-conf
+      - name: edgeTestCases.function-complex_select-conf
         path: etc/openedge
         readonly: true
-  - name: function-custom_functions_1
-    image: hub.baidubce.com/openedgedev/openedge-function-sql:latest
+  - name: edgeTestCases.function-custom_functions_1
+    image: hub.baidubce.com/openedgedev/openedge-edgeTestCases.function-sql:latest
     replica: 0
     mounts:
-      - name: function-custom_functions_1-conf
+      - name: edgeTestCases.function-custom_functions_1-conf
         path: etc/openedge
         readonly: true
-  - name: function-custom_functions_2
-    image: hub.baidubce.com/openedgedev/openedge-function-sql:latest
+  - name: edgeTestCases.function-custom_functions_2
+    image: hub.baidubce.com/openedgedev/openedge-edgeTestCases.function-sql:latest
     replica: 0
     mounts:
-      - name: function-custom_functions_2-conf
+      - name: edgeTestCases.function-custom_functions_2-conf
         path: etc/openedge
         readonly: true
-  - name: function-filter
-    image: hub.baidubce.com/openedgedev/openedge-function-sql:latest
+  - name: edgeTestCases.function-filter
+    image: hub.baidubce.com/openedgedev/openedge-edgeTestCases.function-sql:latest
     replica: 1
     mounts:
-      - name: function-filter--conf
+      - name: edgeTestCases.function-filter--conf
         path: etc/openedge
         readonly: true
-  - name: function-nestmsg
-    image: hub.baidubce.com/openedgedev/openedge-function-sql:latest
+  - name: edgeTestCases.function-nestmsg
+    image: hub.baidubce.com/openedgedev/openedge-edgeTestCases.function-sql:latest
     replica: 2
     mounts:
-      - name: function-nestmsg-conf
+      - name: edgeTestCases.function-nestmsg-conf
         path: etc/openedge
         readonly: true
-  - name: function-select_functions
-    image: hub.baidubce.com/openedgedev/openedge-function-sql:latest
+  - name: edgeTestCases.function-select_functions
+    image: hub.baidubce.com/openedgedev/openedge-edgeTestCases.function-sql:latest
     replica: 0
     mounts:
-      - name: function-select_functions-conf
+      - name: edgeTestCases.function-select_functions-conf
         path: etc/openedge
         readonly: true
-  - name: function-simple_sql
-    image: hub.baidubce.com/openedgedev/openedge-function-sql:latest
+  - name: edgeTestCases.function-simple_sql
+    image: hub.baidubce.com/openedgedev/openedge-edgeTestCases.function-sql:latest
     replica: 1
     mounts:
-      - name: function-simple_sql-conf
+      - name: edgeTestCases.function-simple_sql-conf
         path: etc/openedge
         readonly: true
-  - name: function-where_test1
-    image: hub.baidubce.com/openedgedev/openedge-function-sql:latest
+  - name: edgeTestCases.function-where_test1
+    image: hub.baidubce.com/openedgedev/openedge-edgeTestCases.function-sql:latest
     replica: 0
     mounts:
-      - name: function-where_test1-conf
+      - name: edgeTestCases.function-where_test1-conf
         path: etc/openedge
         readonly: true
-  - name: function-where_test2
-    image: hub.baidubce.com/openedgedev/openedge-function-sql:latest
+  - name: edgeTestCases.function-where_test2
+    image: hub.baidubce.com/openedgedev/openedge-edgeTestCases.function-sql:latest
     replica: 0
     mounts:
-      - name: function-where_test2-conf
+      - name: edgeTestCases.function-where_test2-conf
         path: etc/openedge
 
 volumes:
@@ -195,42 +195,42 @@ volumes:
   - name: remotehub-log
     path: var/db/log/openedge/remotehub-log
 
-  # remote
-  - name: remote-inner-conf
-    path: var/db/openedge/remote-inner-conf
-  - name: remote-inner-log
-    path: var/db/log/openedge/remote-inner-log
+  # edgeTestCases.remote
+  - name: edgeTestCases.remote-inner-conf
+    path: var/db/openedge/edgeTestCases.remote-inner-conf
+  - name: edgeTestCases.remote-inner-log
+    path: var/db/log/openedge/edgeTestCases.remote-inner-log
 
-  - name: remote-nosubauth-conf
-    path: var/db/openedge/remote-nosubauth-conf
-  - name: remote-nosubauth-log
-    path: var/db/log/openedge/remote-iothub-log
+  - name: edgeTestCases.remote-nosubauth-conf
+    path: var/db/openedge/edgeTestCases.remote-nosubauth-conf
+  - name: edgeTestCases.remote-nosubauth-log
+    path: var/db/log/openedge/edgeTestCases.remote-iothub-log
 
-  # function
-  - name: function-manager-conf
-    path: var/db/openedge/function-manager-conf
-  - name: function-manager-log
-    path: var/db/log/openedge/function-manager-log
+  # edgeTestCases.function
+  - name: edgeTestCases.function-manager-conf
+    path: var/db/openedge/edgeTestCases.function-manager-conf
+  - name: edgeTestCases.function-manager-log
+    path: var/db/log/openedge/edgeTestCases.function-manager-log
 
   # sql
   - name: function-simple_sql-conf
-    path: var/db/openedge/function-sql-conf/function-simple_sql-conf
+    path: var/db/openedge/edgeTestCases.function-sql-conf/edgeTestCases.function-simple_sql-conf
   - name: function-filter--conf
-    path: var/db/openedge/function-sql-conf/function-filter--conf
+    path: var/db/openedge/edgeTestCases.function-sql-conf/edgeTestCases.function-filter--conf
   - name: function-complex_select-conf
-    path: var/db/openedge/function-sql-conf/function-complex_select-conf
+    path: var/db/openedge/edgeTestCases.function-sql-conf/edgeTestCases.function-complex_select-conf
   - name: function-custom_functions_1-conf
-    path: var/db/openedge/function-sql-conf/function-custom_functions_1-conf
+    path: var/db/openedge/edgeTestCases.function-sql-conf/edgeTestCases.function-custom_functions_1-conf
   - name: function-custom_functions_2-conf
-    path: var/db/openedge/function-sql-conf/function-custom_functions_2-conf
+    path: var/db/openedge/edgeTestCases.function-sql-conf/edgeTestCases.function-custom_functions_2-conf
   - name: function-nestmsg-conf
-    path: var/db/openedge/function-sql-conf/function-nestmsg-conf
+    path: var/db/openedge/edgeTestCases.function-sql-conf/edgeTestCases.function-nestmsg-conf
   - name: function-select_functions-conf
-    path: var/db/openedge/function-sql-conf/function-select_functions-conf
+    path: var/db/openedge/edgeTestCases.function-sql-conf/edgeTestCases.function-select_functions-conf
   - name: function-where_test1-conf
-    path: var/db/openedge/function-sql-conf/function-where_test1-conf
-  - name: function-where_test2-conf
-    path: var/db/openedge/function-sql-conf/function-where_test2-conf
+    path: var/db/openedge/edgeTestCases.function-sql-conf/edgeTestCases.function-where_test1-conf
+  - name: .function-where_test2-conf
+    path: var/db/openedge/edgeTestCases.function-sql-conf/edgeTestCases.function-where_test2-conf
 
   # python
   - name: function-sayhi-conf
@@ -239,5 +239,5 @@ volumes:
     path: var/db/openedge/function-sayhi_serial-conf
   - name: function-simple_python-conf
     path: var/db/openedge/function-simple_python-conf
-  - name: function-python-code
-    path: var/db/openedge/function-python-code
+  - name: edgeTestCases.function-python-code
+    path: var/db/openedge/edgeTestCases.function-python-code

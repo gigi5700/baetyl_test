@@ -11,7 +11,7 @@ import threading
 
 def handler(event, context):
     """
-    function handler
+    edgeTestCases.function handler
     """
     return event
 
