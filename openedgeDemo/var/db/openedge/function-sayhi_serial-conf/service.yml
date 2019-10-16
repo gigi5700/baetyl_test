@@ -1,5 +1,0 @@
-#name: python-edgeTestCases.function
-functions:
-  - name: 'sayhi_serial'
-    handler: 'sayhi.handler'
-    codedir: 'var/db/openedge/edgeTestCases.function/sayhi'

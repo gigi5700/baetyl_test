@@ -1,4 +1,4 @@
-rootProject.name = 'edgeTestCases-test'
+rootProject.name = 'baetylTestCases'
 
 gradle.allprojects {
     it.apply from: new File(rootDir, 'gradle/bootstrap.gradle')

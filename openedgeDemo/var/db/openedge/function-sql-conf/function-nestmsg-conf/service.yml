@@ -1,4 +1,0 @@
-#name: edgeTestCases.function-sql
-functions:
-  - name: 'nestmsg'
-    handler: 'select nestMsg.device AS `key`, nestMsg.`value` AS `value` where nestMsg.`value` <> 5'

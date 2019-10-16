@@ -1,4 +1,0 @@
-#name: edgeTestCases.function-sql
-functions:
-  - name: 'complex_select'
-    handler: 'select device as `key`, `key` AS `value`, `value` as data, boolValue where `value` >= 10'

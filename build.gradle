@@ -28,7 +28,7 @@ dependencies {
 }
 
 
-task edgetest(type: Test) {
+task baetyltest(type: Test) {
     testClassesDir = sourceSets.test.output.classesDir
     classpath = sourceSets.test.runtimeClasspath
 }

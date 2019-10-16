@@ -1,5 +1,0 @@
-#name: python-edgeTestCases.function
-functions:
-  - name: 'simple_python'
-    handler: 'simplepython.handler'
-    codedir: 'var/db/openedge/edgeTestCases.function/simple_python'

@@ -1,4 +1,0 @@
-#name: edgeTestCases.function-sql
-functions:
-  - name: 'select_functions'
-    handler: 'select `value` + 1 as `value`, doubleValue * `value` as doubleValue, ceil(doubleValue) as ceilValue, floor(doubleValue) as floorValue, mod(doubleValue, `value`) as modValue where device = ''device_abc'''
