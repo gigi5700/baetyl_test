@@ -1,0 +1,4 @@
+#name: function-sql
+functions:
+  - name: 'filter'
+    handler: 'select device, topic() as data, *'

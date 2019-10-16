@@ -1,0 +1,5 @@
+#name: python-function
+functions:
+  - name: 'simple_python'
+    handler: 'simplepython.handler'
+    codedir: 'var/db/baetyl/function/simple_python'
